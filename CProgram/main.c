@@ -35,9 +35,9 @@ TESTS PERFORMED:
 
 /*
 WHAT I COULD DO GIVEN MORE TIME:
-    1.  I would continue looking into thread/child alternatives on Windows to complete TASK 1, with main aspect of program 
-        (timer, printing "ON" and "OFF" functioning).
-            - Or, invest time to set up code on Linuc via Windows SubSystem for Linux 2 on my system, 
+    1.  I would continue looking into thread/child alternatives on Windows to complete task 1 (listening to STDIN), with main aspect of program 
+        (timer, printing "ON" and "OFF") continuing to function in parallel.
+            - Or, invest time to set up code on Linux via Windows SubSystem for Linux 2 on my system, 
               to leverage POSIX / parent-child capabilities.
 
     2.  Although Step 2 has been completed, it is inefficient, due to constant CPU core utilisation without any breaks.
@@ -45,7 +45,7 @@ WHAT I COULD DO GIVEN MORE TIME:
         (Maybe used sleep()
 */
 
-#define TIME_DURATION_SECONDS 1 //1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
+#define TIME_DURATION_SECONDS 1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
 #define ARRAY_SIZE 49 //Determines total array size to store 48 digits plus '\0' null terminator.
 
 int main()
