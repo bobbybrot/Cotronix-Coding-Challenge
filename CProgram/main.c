@@ -43,6 +43,9 @@ WHAT I COULD DO GIVEN MORE TIME:
     2.  Although Step 2 has been completed, it is inefficient, due to constant CPU core utilisation without any breaks.
         With more time, I could look at implementing a suitable solution to make process sleep and being less CPU intensive.
         (Maybe used sleep()
+
+    3.  I would have liked a full simulation test of TASK 2 with program running 24 hours, confirming correct output of "ON"
+        and "OFF" is printed, based on the default schedule set.
 */
 
 #define TIME_DURATION_SECONDS 1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
