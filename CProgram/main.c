@@ -12,7 +12,40 @@ TASK UNDERSTANDING:
     - Prints "on" or "off" to STDOUT at appropriate times.
 */
 
-#define TIME_DURATION_SECONDS 1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
+/*
+ASSUMPTIONS / DESIGN DECISIONS:
+    - It is assumed upon first start, a default schedule is already given.
+        - Default schedule taken from example given in Git website (https://github.com/benwhite45/coding-exercise)
+
+    - It is assumed 1 = "ON" and 0 = "OFF".
+    
+    - Decided to go for character array, with index starting at least significant digit (right going left)
+        - Upon reaching index 0 (and 24hrs elapsed), index will restart at least significant digit (47) and repeat process.
+*/
+
+/*
+TESTS PERFORMED:
+    - Performed test by setting TIME_DURATION_SECONDS to 5 seconds instead of 1800.
+            - Observing first 16 outputs (using default schedule) "0000111111111111"
+                1. Confirm 12 "ON" is printed
+                    - PASS
+                2. Confirm 4 "OFF" is printed
+                    - PASS
+*/
+
+/*
+WHAT I COULD DO GIVEN MORE TIME:
+    1.  I would continue looking into thread/child alternatives on Windows to complete TASK 1, with main aspect of program 
+        (timer, printing "ON" and "OFF" functioning).
+            - Or, invest time to set up code on Linuc via Windows SubSystem for Linux 2 on my system, 
+              to leverage POSIX / parent-child capabilities.
+
+    2.  Although Step 2 has been completed, it is inefficient, due to constant CPU core utilisation without any breaks.
+        With more time, I could look at implementing a suitable solution to make process sleep and being less CPU intensive.
+        (Maybe used sleep()
+*/
+
+#define TIME_DURATION_SECONDS 1 //1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
 #define ARRAY_SIZE 49 //Determines total array size to store 48 digits plus '\0' null terminator.
 
 int main()
@@ -38,9 +71,6 @@ int main()
             else
                 printf("OFF\n");
 
-            // DESIGN DECISION:  
-            // Once 24hours elapsed and all bits observed, we will move index back to least significant.
-            // then repeat the process for next 24 hours.
             if (0 == iIndex) //IF at index 0, restart from position of least significant bit
                 iIndex = ARRAY_SIZE - 2;
             else //decrement normally
