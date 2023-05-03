@@ -26,7 +26,7 @@ ASSUMPTIONS / DESIGN DECISIONS:
 /*
 TESTS PERFORMED:
     - Performed test by setting TIME_DURATION_SECONDS to 5 seconds instead of 1800.
-            - Observing first 16 outputs (using default schedule) "0000111111111111"
+            - Observing first 16 outputs (using default schedule, right to left) "0000111111111111"
                 1. Confirm 12 "ON" is printed
                     - PASS
                 2. Confirm 4 "OFF" is printed
@@ -41,11 +41,11 @@ WHAT I COULD DO GIVEN MORE TIME:
               to leverage POSIX / parent-child capabilities.
 
     2.  Although Step 2 has been completed, it is inefficient, due to constant CPU core utilisation without any breaks.
-        With more time, I could look at implementing a suitable solution to make process sleep and being less CPU intensive.
-        (Maybe used sleep()
+        With more time, I could look at implementing a suitable solution to make code less CPU intensive.
+        ( Maybe used sleep() ?)
 
-    3.  I would have liked a full simulation test of TASK 2 with program running 24 hours, confirming correct output of "ON"
-        and "OFF" is printed, based on the default schedule set.
+    3.  I would have perform a full simulation test of TASK 2 implementation, with program running 24 hours, confirming correct output of "ON"
+        and "OFF" is printed every 30 minutes, based on the default schedule set.
 */
 
 #define TIME_DURATION_SECONDS 1800 //Determines seconds to wait until we consult scheduler. 1800s = 30 minutes.
